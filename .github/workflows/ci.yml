@@ -19,4 +19,6 @@ jobs:
         distribution: temurin
         java-version: 17
         cache: sbt
-    - run: sbt -v -J-Xmx4G "Jmh/run -i 10 -wi 10 -f1 -t1"
+    - run: wget https://raw.githubusercontent.com/sbt/sbt/586e0a752cd5d0f0335deaa910c4355e0e0a0e56/sbt
+    - run: chmod +x ./sbt
+    - run: ./sbt -v -J-Xmx4G "Jmh/run -i 10 -wi 10 -f1 -t1"
