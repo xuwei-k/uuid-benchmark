@@ -20,10 +20,10 @@ jobs:
         java-version: 17
         cache: sbt
     - run: wget https://raw.githubusercontent.com/sbt/sbt/586e0a752cd5d0f0335deaa910c4355e0e0a0e56/sbt
-      if: ${{ matrix.os != "windows-latest" }}
+      if: ${{ matrix.os != 'windows-latest' }}
     - run: chmod +x ./sbt
-      if: ${{ matrix.os != "windows-latest" }}
+      if: ${{ matrix.os != 'windows-latest' }}
     - run: ./sbt -v "Jmh/run -i 10 -wi 10 -f1 -t1"
-      if: ${{ matrix.os == "macos-latest" || matrix.os == "ubuntu-latest" }}
+      if: ${{ matrix.os == 'macos-latest' || matrix.os == 'ubuntu-latest' }}
     - run:   sbt -v "Jmh/run -i 10 -wi 10 -f1 -t1"
-      if: ${{ matrix.os == "windows-latest" }}
+      if: ${{ matrix.os == 'windows-latest' }}
